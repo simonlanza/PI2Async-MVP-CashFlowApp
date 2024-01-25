@@ -13,9 +13,19 @@ const PieChart = () => {
                 chartRef.current.chart.destroy();
             }
 
-            const labels = currentUser.expenses.map((expense) => expense.category);
-            const amounts = currentUser.expenses.map((expense) => expense.amount);
-            const colors = generateRandomColors(currentUser.expenses.length);
+            // Agrupar gastos por categoría
+            const groupedExpenses = currentUser.expenses.reduce((acc, expense) => {
+                const category = expense.category;
+                if (!acc[category]) {
+                    acc[category] = 0;
+                }
+                acc[category] += expense.amount;
+                return acc;
+            }, {});
+
+            const labels = Object.keys(groupedExpenses);
+            const amounts = Object.values(groupedExpenses);
+            const colors = generateRandomColors(labels.length);
 
             const ctx = chartRef.current.getContext('2d');
             chartRef.current.chart = new Chart(ctx, {
@@ -67,4 +77,5 @@ const PieChart = () => {
 };
 
 export default PieChart;
+
 
