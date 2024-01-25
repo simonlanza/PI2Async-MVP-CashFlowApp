@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 
 const Login = () => {
   return (
-    <div>
+    <div className='flex justify-center'>
       <LoginForm />
     </div>
   );

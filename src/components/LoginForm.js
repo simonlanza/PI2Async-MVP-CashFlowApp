@@ -42,7 +42,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full bg-graphiteMedium text-gold-500 p-8 mt-16 rounded-md shadow-md">
+    <div className="flex flex-col items-center justify-center h-full bg-graphiteMedium text-gold-500 p-8 mt-16 rounded-md shadow-md w-3/4">
       <h2 className="text-2xl mb-4 text-gold-500">Iniciar Sesión</h2>
       <form onSubmit={handleLogin} className="flex flex-col items-center w-full">
         <label className="flex flex-col mb-2 text-left text-gold-500 w-3/4">
